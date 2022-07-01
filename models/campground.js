@@ -44,8 +44,9 @@ const campgroundSchema = new Schema({
 }, opts);
 
 campgroundSchema.virtual('properties.popUpMarkup').get(function () {
-    return `<strong><a href="/campgrounds/${this._id}">${this.title}</a></strong>
-    <p>${this.description.substring(0, 50)}...</p>`
+    return `<h5><strong>${this.title}</strong></h5>
+    <p class="fs-6">${this.description.substring(0, 50)}...</p>
+    <button class="btn btn-secondary btn-sm "><a class="text-white text-decoration-none" href="/campgrounds/${this._id}">View Campground</a></button>`
 });
 
 // QUERY MIDDLEWARE
